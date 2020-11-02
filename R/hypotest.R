@@ -18,7 +18,7 @@ getZ <- function(pHat, pNull, size) {
 #' gets z-score given sample p (pHat), null hypothesis value (pNull), population standard deviation (sd), and sample
 #'
 #' @param pHat Sample probability
-#' @param pNull null hypothesis value
+#' @param pNull Null hypothesis value
 #' @param sd Standard deviation
 #' @param size Sample size
 #' @return Z-score

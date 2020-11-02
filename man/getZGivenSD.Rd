@@ -9,7 +9,7 @@ getZGivenSD(pHat, pNull, sd, size)
 \arguments{
 \item{pHat}{Sample probability}
 
-\item{pNull}{null hypothesis value}
+\item{pNull}{Null hypothesis value}
 
 \item{sd}{Standard deviation}
 
