@@ -15,7 +15,7 @@ devtools::install_github("azc242/collegestats")
 - doubleSided: Boolean value denoting whether test is double sided or not, defaults to FALSE
 
 **Value**
-p-value
+P-value
 
 ## getZ(pHat, pNull, size)
 **Arguments** 
@@ -24,7 +24,7 @@ p-value
 - size: Sample size
 
 **Value**
-z-score
+Z-score
 
 ## getZGivenSD(pHat, pNull, sd, size)
 **Arguments** 
@@ -34,7 +34,7 @@ z-score
 - size: Sample size
 
 **Value**
-z-score
+Z-score
 
 ## interval(trials, successes, conf)
 **Arguments** 
@@ -44,3 +44,14 @@ z-score
 
 **Value**
 Confidence level formatted as a String
+
+## type2err(Ho, Ha, p, n, alpha)
+**Arguments** 
+- Ho: Null hypothesis
+- Ha: Direction of the test, valid arguments are either "<", ">", or "!="
+- p: True probability
+- n: Sample size
+- alpha: Significance level/Type I error probability/alpha level
+
+**Value**
+Probability of Type II error
