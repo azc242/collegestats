@@ -12,7 +12,7 @@
 #' @param sigma (Optional) population standard deviation
 #' @return probability of Type II error
 #' @export
-type2err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
+type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
   if(is.null(sigma)) {
     message("You have not specified an optional population sd. This is usually when working with probabilities.")
     # 1-sided test with Ha = greater than some value
@@ -31,8 +31,8 @@ type2err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       sd = sqrt(Ho * (1 - Ho)/n)
       lower = Ho - z * sd
 
-      zLess = pnorm((lower - p)/sqrt(p * (1 - p)/n))
-      B = 1 - zLess
+      z_less = pnorm((lower - p)/sqrt(p * (1 - p)/n))
+      B = 1 - z_less
       return(B)
     }
     else if(Ha == "!=") {
@@ -42,10 +42,10 @@ type2err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       lower = Ho - z * sd
       upper = Ho + z * sd
 
-      zLess = pnorm((lower - p)/sqrt(p * (1 - p)/n))
-      zGreater = 1 - pnorm((upper - p)/sqrt(p * (1 - p)/n))
+      z_less = pnorm((lower - p)/sqrt(p * (1 - p)/n))
+      z_greater = 1 - pnorm((upper - p)/sqrt(p * (1 - p)/n))
 
-      B = zGreater - zLess
+      B = z_greater - z_less
       return(B)
     }
     else {
@@ -70,8 +70,8 @@ type2err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       sd = sigma/sqrt(n)
       lower = Ho - z * sd
 
-      zLess = pnorm((lower - p)/sd)
-      B = 1 - zLess
+      z_less = pnorm((lower - p)/sd)
+      B = 1 - z_less
       return(B)
     }
     else if(Ha == "!=") {
@@ -81,10 +81,10 @@ type2err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       lower = Ho - z * sd
       upper = Ho + z * sd
 
-      zLess = pnorm((lower - p)/sqrt(p * (1 - p)/n))
-      zGreater = pnorm((upper - p)/sd)
+      z_less = pnorm((lower - p)/sqrt(p * (1 - p)/n))
+      z_greater = pnorm((upper - p)/sd)
 
-      B = zGreater - zLess
+      B = z_greater - z_less
       return(B)
     }
     else {
@@ -102,24 +102,24 @@ type2err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
 #' @param beta Probability of Type II error
 #' @param Ho Null hypothesis
 #' @param Ha Actual mean or probability used with beta
-#' @param twoSided (Optional) Boolean to determine if it is a 2-sided test or not. Defaults to 1-sided test
+#' @param two_sided (Optional) Boolean to determine if it is a 2-sided test or not. Defaults to 1-sided test
 #' @param sigma (Optional) Standard deviation. Defaults to NULL, for when Ho and Ha are probabilities and not mean values
-#' @return NOT rounded minimum sample size needed (generally round upwards)
+#' @return NOT rounded minimum sample size needed (generally round upwards for an upper test)
 #' @export
-minSampSizeType2 <- function(alpha, beta, Ho, Ha, twoSided = FALSE, sigma = NULL) {
-  if(!twoSided) {
+type_2_err_min_size <- function(alpha, beta, Ho, Ha, two_sided = FALSE, sigma = NULL) {
+  if(!two_sided) {
     message("You haven't specified a 2 or 1 sided test. The program defaults to a 1 sided test.")
   }
   if(is.null(sigma)) {
     message("You have not specified a sd, this is when Ho and Ha are probabilities instead of numerical quantities.")
-    z_alpha = if(twoSided) qnorm(1 - (alpha/2)) else qnorm(1 - alpha)
+    z_alpha = if(two_sided) qnorm(1 - (alpha/2)) else qnorm(1 - alpha)
     z_beta = qnorm(1 - beta)
 
     n = (((z_beta * sqrt(Ha * (1 - Ha))) + (z_alpha * sqrt(Ho * (1 - Ho))))/(Ho - Ha))^2
     return(n)
   }
   else if(!is.null(sigma)){
-    z_alpha = if(twoSided) qnorm(1 - (alpha/2)) else qnorm(1 - alpha)
+    z_alpha = if(two_sided) qnorm(1 - (alpha/2)) else qnorm(1 - alpha)
     z_beta = qnorm(1 - beta)
 
     n = ((z_alpha + z_beta)^2 * (sigma^2))/((Ho - Ha)^2)
