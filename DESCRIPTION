@@ -1,13 +1,13 @@
 Package: collegestats
-Title: What the Package Does (One Line, Title Case)
+Title: Common functions used in college statistics classes
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Alan",
+           family = "Chen",
            role = c("aut", "cre"),
            email = "first.last@example.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: This package contains various functions that are useful for college or high school statistics classes, such as hypothesis testing, confidence intervals, type 2 II error, etc.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
