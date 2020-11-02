@@ -40,9 +40,9 @@ get_z_given_sd <- function(p_hat, p_null, sd, size) {
 #' usage: defaults to 1 sided test, call with parameter (doubleSided = TRUE) to get p-value of a double sided test
 #'
 #' @param z_score z-score
-#' @param double_sided Boolean value denoting whether test is double sided or not, defaults to FALSE
+#' @param two_sided Boolean value denoting whether test is double sided or not, defaults to FALSE
 #' @return p-value
 #' @export
-get_p_value <- function(z_score, double_sided = FALSE) {
-  result <- if(double_sided) 2*(1-pnorm(abs(z_score))) else 1-pnorm(z_score)
+get_p_value <- function(z_score, two_sided = FALSE) {
+  result <- if(two_sided) 2*(1-pnorm(abs(z_score))) else 1-pnorm(z_score)
 }

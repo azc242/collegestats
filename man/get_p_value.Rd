@@ -4,12 +4,12 @@
 \alias{get_p_value}
 \title{Gets p-value}
 \usage{
-get_p_value(z_score, double_sided = FALSE)
+get_p_value(z_score, two_sided = FALSE)
 }
 \arguments{
 \item{z_score}{z-score}
 
-\item{double_sided}{Boolean value denoting whether test is double sided or not, defaults to FALSE}
+\item{two_sided}{Boolean value denoting whether test is double sided or not, defaults to FALSE}
 }
 \value{
 p-value
