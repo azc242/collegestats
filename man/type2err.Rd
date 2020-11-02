@@ -4,7 +4,7 @@
 \alias{type2err}
 \title{Generates probability of Type II error}
 \usage{
-type2err(Ho, Ha, p, n, alpha)
+type2err(Ho, Ha, p, n, alpha, sigma = NULL)
 }
 \arguments{
 \item{Ho}{Null hypothesis}
@@ -16,6 +16,8 @@ type2err(Ho, Ha, p, n, alpha)
 \item{n}{Sample size}
 
 \item{alpha}{Significance level/Type I error probability/alpha level}
+
+\item{sigma}{(Optional) population standard deviation}
 }
 \value{
 probability of Type II error
