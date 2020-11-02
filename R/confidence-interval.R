@@ -10,7 +10,6 @@
 #' @param conf Confidence level
 #' @return Confidence level formatted as a String
 #' @export
-# returns confidence interval given number of trails, successes, and confidence level
 interval <- function(trials, successes, conf) {
   temp = 1 - (1 - conf)/2
   z = qnorm(temp)
