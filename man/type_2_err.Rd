@@ -11,7 +11,7 @@ type_2_err(Ho, Ha, mu_alt, n, alpha, sigma = NULL)
 
 \item{Ha}{Direction of the test, valid arguments are either "<", ">", or "!="}
 
-\item{mu_alt}{True probability}
+\item{mu_alt}{True mean or probability}
 
 \item{n}{Sample size}
 

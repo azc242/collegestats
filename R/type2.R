@@ -6,7 +6,7 @@
 #'
 #' @param Ho Null hypothesis
 #' @param Ha Direction of the test, valid arguments are either "<", ">", or "!="
-#' @param mu_alt True probability
+#' @param mu_alt True mean or probability
 #' @param n Sample size
 #' @param alpha Significance level/Type I error probability/alpha level
 #' @param sigma (Optional) population standard deviation
