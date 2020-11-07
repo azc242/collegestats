@@ -4,14 +4,14 @@
 \alias{type_2_err}
 \title{Generates probability of Type II error}
 \usage{
-type_2_err(Ho, Ha, p, n, alpha, sigma = NULL)
+type_2_err(Ho, Ha, mu_alt, n, alpha, sigma = NULL)
 }
 \arguments{
 \item{Ho}{Null hypothesis}
 
 \item{Ha}{Direction of the test, valid arguments are either "<", ">", or "!="}
 
-\item{p}{True probability}
+\item{mu_alt}{True probability}
 
 \item{n}{Sample size}
 

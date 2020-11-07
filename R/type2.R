@@ -6,13 +6,13 @@
 #'
 #' @param Ho Null hypothesis
 #' @param Ha Direction of the test, valid arguments are either "<", ">", or "!="
-#' @param p True probability
+#' @param mu_alt True probability
 #' @param n Sample size
 #' @param alpha Significance level/Type I error probability/alpha level
 #' @param sigma (Optional) population standard deviation
 #' @return probability of Type II error
 #' @export
-type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
+type_2_err <- function(Ho, Ha, mu_alt, n, alpha, sigma = NULL) {
   if(is.null(sigma)) {
     message("You have not specified an optional population sd. This is usually when working with probabilities.")
     # 1-sided test with Ha = greater than some value
@@ -22,7 +22,7 @@ type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       sd = sqrt(Ho * (1 - Ho)/n)
       upper = Ho + z * sd
 
-      B = pnorm((upper - p)/sqrt(p * (1 - p)/n))
+      B = pnorm((upper - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
       return(B)
     }
     else if(Ha == "<") {
@@ -31,7 +31,7 @@ type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       sd = sqrt(Ho * (1 - Ho)/n)
       lower = Ho - z * sd
 
-      z_less = pnorm((lower - p)/sqrt(p * (1 - p)/n))
+      z_less = pnorm((lower - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
       B = 1 - z_less
       return(B)
     }
@@ -42,8 +42,8 @@ type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       lower = Ho - z * sd
       upper = Ho + z * sd
 
-      z_less = pnorm((lower - p)/sqrt(p * (1 - p)/n))
-      z_greater = 1 - pnorm((upper - p)/sqrt(p * (1 - p)/n))
+      z_less = pnorm((lower - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
+      z_greater = 1 - pnorm((upper - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
 
       B = z_greater - z_less
       return(B)
@@ -61,7 +61,7 @@ type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       sd = sigma/sqrt(n)
       upper = Ho + z * sd
 
-      B = pnorm((upper - p)/sd)
+      B = pnorm((upper - mu_alt)/sd)
       return(B)
     }
     else if(Ha == "<") {
@@ -70,7 +70,7 @@ type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       sd = sigma/sqrt(n)
       lower = Ho - z * sd
 
-      z_less = pnorm((lower - p)/sd)
+      z_less = pnorm((lower - mu_alt)/sd)
       B = 1 - z_less
       return(B)
     }
@@ -81,8 +81,8 @@ type_2_err <- function(Ho, Ha, p, n, alpha, sigma = NULL) {
       lower = Ho - z * sd
       upper = Ho + z * sd
 
-      z_less = pnorm((lower - p)/sqrt(p * (1 - p)/n))
-      z_greater = pnorm((upper - p)/sd)
+      z_less = pnorm((lower - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
+      z_greater = pnorm((upper - mu_alt)/sd)
 
       B = z_greater - z_less
       return(B)
