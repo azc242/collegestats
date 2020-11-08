@@ -4,10 +4,10 @@
 \alias{power}
 \title{Gets power, or the probability of correctly rejecting the null hypothesis.}
 \usage{
-power(Ho, Ha, mu_alt, n, alpha, sigma = NULL)
+power(H0, Ha, mu_alt, n, alpha, sigma = NULL)
 }
 \arguments{
-\item{Ho}{Null hypothesis}
+\item{H0}{Null hypothesis}
 
 \item{Ha}{Direction of the test, valid arguments are either "<", ">", or "!="}
 

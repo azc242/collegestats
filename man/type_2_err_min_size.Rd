@@ -4,20 +4,20 @@
 \alias{type_2_err_min_size}
 \title{Gets minimum sample size needed for certain Beta (Type II error) value}
 \usage{
-type_2_err_min_size(alpha, beta, Ho, Ha, two_sided = FALSE, sigma = NULL)
+type_2_err_min_size(alpha, beta, H0, Ha, two_sided = FALSE, sigma = NULL)
 }
 \arguments{
 \item{alpha}{Probability of Type I error}
 
 \item{beta}{Probability of Type II error}
 
-\item{Ho}{Null hypothesis}
+\item{H0}{Null hypothesis}
 
 \item{Ha}{Actual mean or probability used with beta}
 
 \item{two_sided}{(Optional) Boolean to determine if it is a 2-sided test or not. Defaults to 1-sided test}
 
-\item{sigma}{(Optional) Standard deviation. Defaults to NULL, for when Ho and Ha are probabilities and not mean values}
+\item{sigma}{(Optional) Standard deviation. Defaults to NULL, for when H0 and Ha are probabilities and not mean values}
 }
 \value{
 NOT rounded minimum sample size needed (generally round upwards for an upper test)
