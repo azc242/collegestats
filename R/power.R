@@ -1,10 +1,10 @@
-#' Gets powe, or the probability of correctly rejecting the null hypothesis.
-#' 
+#' Gets power, or the probability of correctly rejecting the null hypothesis.
+#'
 #' This function will return the probability of rejecting the null hypothesis
-#' when it is in fact false, given the null hypothesis value, direction of the 
+#' when it is in fact false, given the null hypothesis value, direction of the
 #' test, alternative mu value, sample size, significane level alpha, and
 #' (optionally) the population standard deviation
-#' 
+#'
 #' @param Ho Null hypothesis
 #' @param Ha Direction of the test, valid arguments are either "<", ">", or "!="
 #' @param mu_alt True mean or probability

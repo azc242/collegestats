@@ -7,7 +7,7 @@
 get_p_value(z_score, two_sided = FALSE)
 }
 \arguments{
-\item{z_score}{z-score}
+\item{z_score}{Z-score}
 
 \item{two_sided}{Boolean value denoting whether test is double sided or not, defaults to FALSE}
 }
@@ -15,5 +15,5 @@ get_p_value(z_score, two_sided = FALSE)
 p-value
 }
 \description{
-usage: defaults to 1 sided test, call with parameter (doubleSided = TRUE) to get p-value of a double sided test
+Defaults to 1 sided test, call with parameter (doubleSided = TRUE) to get p-value of a double sided test
 }

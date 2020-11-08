@@ -2,7 +2,7 @@
 % Please edit documentation in R/power.R
 \name{power}
 \alias{power}
-\title{Gets powe, or the probability of correctly rejecting the null hypothesis.}
+\title{Gets power, or the probability of correctly rejecting the null hypothesis.}
 \usage{
 power(Ho, Ha, mu_alt, n, alpha, sigma = NULL)
 }

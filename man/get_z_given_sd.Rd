@@ -19,5 +19,5 @@ get_z_given_sd(p_hat, p_null, sd, size)
 Z-score
 }
 \description{
-gets z-score given sample p (p_hat), null hypothesis value (p_null), population standard deviation (sd), and sample
+Gets z-score given sample p (p_hat), null hypothesis value (p_null), population standard deviation (sd), and sample
 }
