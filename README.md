@@ -9,6 +9,42 @@ install.packages("devtools")
 devtools::install_github("azc242/collegestats")
 ```
 # Functions
+## z_test_neq(H0, sigma = FALSE, alpha, samp_size, x_bar)
+**Description**: Conducts double sided z-test, equivalent of Ha != H0.
+
+**Arguments** 
+- H0: Null hyothesis
+- sigma = (Optional) population standard deviation
+- samp_size: Sample size
+- x_bar: Sample mean or proportion
+
+**Value**
+Data frame containing test result, p-value, critical values
+
+## z_test_leq(H0, sigma = FALSE, alpha, samp_size, x_bar)
+**Description**: Conducts lower-tailed z-test, equivalent of Ha < H0.
+
+**Arguments** 
+- H0: Null hyothesis
+- sigma = (Optional) population standard deviation
+- samp_size: Sample size
+- x_bar: Sample mean or proportion
+
+**Value**
+Data frame containing test result, p-value, critical value
+
+## z_test_geq(H0, sigma = FALSE, alpha, samp_size, x_bar)
+**Description**: Conducts upper-tailed z-test, equivalent of Ha > H0
+
+**Arguments** 
+- H0: Null hyothesis
+- sigma = (Optional) population standard deviation
+- samp_size: Sample size
+- x_bar: Sample mean or proportion
+
+**Value**
+Data frame containing test result, p-value, critical value
+
 ## get_p_value(z_score, two_sided = FALSE)
 **Description**: Gets the p-value
 
