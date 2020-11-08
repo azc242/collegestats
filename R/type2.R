@@ -19,31 +19,31 @@ type_2_err <- function(Ho, Ha, mu_alt, n, alpha, sigma = NULL) {
     if(Ha == ">") {
       z = qnorm(1 - alpha)
 
-      sd = sqrt(Ho * (1 - Ho)/n)
+      sd = sqrt(Ho * (1 - Ho) / n)
       upper = Ho + z * sd
 
-      B = pnorm((upper - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
+      B = pnorm((upper - mu_alt) / sqrt(mu_alt * (1 - mu_alt) / n))
       return(B)
     }
     else if(Ha == "<") {
       z = qnorm(1 - alpha)
 
-      sd = sqrt(Ho * (1 - Ho)/n)
+      sd = sqrt(Ho * (1 - Ho) / n)
       lower = Ho - z * sd
 
-      z_less = pnorm((lower - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
+      z_less = pnorm((lower - mu_alt) / sqrt(mu_alt * (1 - mu_alt) / n))
       B = 1 - z_less
       return(B)
     }
     else if(Ha == "!=") {
-      z = qnorm(1 - (alpha)/2)
+      z = qnorm(1 - (alpha) / 2)
 
-      sd = sqrt(Ho * (1 - Ho)/n)
+      sd = sqrt(Ho * (1 - Ho) / n)
       lower = Ho - z * sd
       upper = Ho + z * sd
 
-      z_less = pnorm((lower - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
-      z_greater = 1 - pnorm((upper - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
+      z_less = pnorm((lower - mu_alt) / sqrt(mu_alt * (1 - mu_alt) / n))
+      z_greater = 1 - pnorm((upper - mu_alt) / sqrt(mu_alt * (1 - mu_alt) / n))
 
       B = z_greater - z_less
       return(B)
@@ -61,7 +61,7 @@ type_2_err <- function(Ho, Ha, mu_alt, n, alpha, sigma = NULL) {
       sd = sigma/sqrt(n)
       upper = Ho + z * sd
 
-      B = pnorm((upper - mu_alt)/sd)
+      B = pnorm((upper - mu_alt) / sd)
       return(B)
     }
     else if(Ha == "<") {
@@ -70,7 +70,7 @@ type_2_err <- function(Ho, Ha, mu_alt, n, alpha, sigma = NULL) {
       sd = sigma/sqrt(n)
       lower = Ho - z * sd
 
-      z_less = pnorm((lower - mu_alt)/sd)
+      z_less = pnorm((lower - mu_alt) / sd)
       B = 1 - z_less
       return(B)
     }
@@ -81,8 +81,8 @@ type_2_err <- function(Ho, Ha, mu_alt, n, alpha, sigma = NULL) {
       lower = Ho - z * sd
       upper = Ho + z * sd
 
-      z_less = pnorm((lower - mu_alt)/sqrt(mu_alt * (1 - mu_alt)/n))
-      z_greater = pnorm((upper - mu_alt)/sd)
+      z_less = pnorm((lower - mu_alt) / sd)
+      z_greater = pnorm((upper - mu_alt) / sd)
 
       B = z_greater - z_less
       return(B)
