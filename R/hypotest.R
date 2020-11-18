@@ -78,7 +78,7 @@ z_test_neq <- function(H0, sigma = NULL, alpha = .05, samp_size, x_bar) {
     upper_crit_value <- H0 + qnorm(1 - alpha/2) * samp_sd
     lower_crit_value <- H0 + qnorm(alpha / 2) * samp_sd
     reject_H0 = (x_bar < lower_crit_value | x_bar > upper_crit_value)
-    p_value = 2 * (1 - pnorm(abs(x_bar - H0)/samp_sd))
+    p_value = 2 * (1 - pnorm(abs(x_bar - H0) / samp_sd))
 
     return(data.frame("Reject H0" = reject_H0,
                       "p-value" = p_value,
