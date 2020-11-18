@@ -3,12 +3,12 @@
 #' This function takes in 2 vectors of a 2-sample t-test and
 #' returns the degrees of freedom
 #'
-#' @author Timothy Roeper, PhD Professor at New York University
+#' @author Timothy Roeper,  Professor at New York University
 #' @param x data for sample 1
 #' @param y data for sample 2
 #' @return degrees of freedom
 #' @export
-approx_df_2_sample_t_test = function(x, y) {
+df_2_sample_t_test = function(x, y) {
   x = as_vector(x)
   y = as_vector(y)
   s2_x = var(x)
