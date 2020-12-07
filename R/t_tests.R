@@ -121,6 +121,7 @@ two_samp_t_test_neq <- function(samp1_mean, samp2_mean, samp1_size, samp2_size, 
     df = (s2_x / n_x + s2_y / n_y)^2 /
       (s2_x^2 / (n_x^2 * df_x) + s2_y^2 / (n_y^2 * df_y))
     t_stat = diff / diff_var
+    cat(df)
     p_val = (1 - pt(abs(t_stat), df = df)) + pt(t_stat, df = df)
     return(data.frame("Reject H0" = p_val < alpha,
                       "p-value" = p_val,
